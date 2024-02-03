@@ -1,17 +1,21 @@
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { removeContact } from '../../redux/contactSlice/contactSlice.js';
-import {selectVisibleContacts} from '../../redux/selectors/selectors.js'
+import { apiGetContacts, apiDeleteContact } from '../../redux/contactSlice/contactSlice.js';
+import {selectContactsFilter} from '../../redux/filterSlice/filter.selector.js'
 import css from './ContactList.module.css';
 
 const ContactList = () => {
     const dispatch = useDispatch();
-    
+
+    useEffect(() => {
+        dispatch(apiGetContacts())
+    }, [dispatch]);
+   
     const handleDeleteContact = contactId => {
-        const action = removeContact(contactId);
-        dispatch(action);
+        dispatch(apiDeleteContact(contactId))
     };
 
-    const visibleContacts = useSelector(selectVisibleContacts);
+    const visibleContacts = useSelector(selectContactsFilter);
     
     return (
         <ul className={css.listContscts}>
@@ -19,7 +23,7 @@ const ContactList = () => {
             <li key={contact.id}>
                 <p>
                     <span className={css.contactName}>{contact.name}</span>
-                    <span className={css.contactNumber}>{contact.number}</span>
+                    <span className={css.contactNumber}>{contact.phone}</span>
                     <button className={css.contactDelete} onClick={() => handleDeleteContact(contact.id)}>Delete</button>
                 </p>
             </li>)}

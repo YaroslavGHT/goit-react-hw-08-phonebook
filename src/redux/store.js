@@ -1,8 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
+import { contactsReducer } from '../redux/contactSlice/contactSlice.js';
+import { filterReducer } from '../redux/filterSlice/filterSlice.js';
 
 import {
   persistStore,
-  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -10,22 +11,15 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-
-import { contactsReducer } from './contactSlice/contactSlice.js';
-
-const contactConfig = {
-  key: 'contact',
-  storage,
-  whitelist: ['contacts'],
-};
 
 export const store = configureStore({
   reducer: {
-    contactsScope: persistReducer(contactConfig, contactsReducer),
+    contacts: contactsReducer,
+    filter: filterReducer,
   },
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
+
+  middleware: getDefaultMiddleWare =>
+    getDefaultMiddleWare({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
