@@ -2,13 +2,13 @@ import { configureStore } from '@reduxjs/toolkit';
 import { contactsReducer } from '../redux/contactSlice/contactSlice.js';
 import { filterReducer } from '../redux/filterSlice/filterSlice.js';
 
-import {
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PURGE,
-  REGISTER,
-} from 'redux-persist';
+// import {
+//   FLUSH,
+//   REHYDRATE,
+//   PAUSE,
+//   PURGE,
+//   REGISTER,
+// } from 'redux-persist';
 
 export const store = configureStore({
   reducer: {
@@ -19,7 +19,7 @@ export const store = configureStore({
   middleware: getDefaultMiddleWare =>
     getDefaultMiddleWare({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PURGE, REGISTER],
+        // ignoredActions: [FLUSH, REHYDRATE, PAUSE, PURGE, REGISTER],
       },
     }),
 });
