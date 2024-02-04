@@ -6,7 +6,6 @@ import {
   FLUSH,
   REHYDRATE,
   PAUSE,
-  PERSIST,
   PURGE,
   REGISTER,
 } from 'redux-persist';
@@ -20,7 +19,7 @@ export const store = configureStore({
   middleware: getDefaultMiddleWare =>
     getDefaultMiddleWare({
       serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PURGE, REGISTER],
       },
     }),
 });
