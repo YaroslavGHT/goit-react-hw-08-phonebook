@@ -1,9 +1,11 @@
 import css from './ContactForm.module.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { apiAddContact } from '../../redux/contactSlice/contactSlice.js';
+import {selectContactsList} from '../../redux/contactSlice/contact.selectors.js'
 
 const ContactForm = () => {
   const dispatch = useDispatch();
+  const contacts = useSelector(selectContactsList)
 
   const handleFormSubmit = event => {
     event.preventDefault();
@@ -14,7 +16,16 @@ const ContactForm = () => {
       name,
       phone
     };
-    dispatch(apiAddContact(newContact))
+
+    const checkDuplication = contacts.some(
+        contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
+    );
+
+    if (checkDuplication) {
+        alert(`${newContact.name} is alredy in contscts`);
+        return;
+      }
+      dispatch(apiAddContact(newContact))
   };
 
   return (

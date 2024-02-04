@@ -3,7 +3,6 @@ import { contactsReducer } from '../redux/contactSlice/contactSlice.js';
 import { filterReducer } from '../redux/filterSlice/filterSlice.js';
 
 import {
-  persistStore,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -26,4 +25,4 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store);
+// export const persistor = persistStore(store);
