@@ -14,6 +14,8 @@ export async function addContact(contact) {
   return data;
 }
 
+
+
 export async function deleteContact(id) {
   const { data } = await contactsApi.delete(`/contacts/${id}`);
   return data;
