@@ -1,22 +1,30 @@
-import { ContactForm } from './components/ContactForm/ContactForm.jsx';
-import { Filter } from './components/Filter/Filter.jsx'
-import { ContactList } from './components/ContactList/ContactList.jsx'
-import css from './App.module.css'
+import { Route, Routes } from 'react-router-dom';
+import Register from './pages/Register.jsx';
+import Home from './pages/Home.jsx';
+import { Layout } from './components/Layout/Layout.jsx';
+import Login from './pages/Login.jsx';
+import Contacts from './pages/Contacts.jsx';
+import React, { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { apiRefreshUser } from './redux/auth/authSlice.js';
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(apiRefreshUser());
+  }, [dispatch]);
+
   return (
-    <div className={css.main}>
-      <h2 className={css.title}>Phonebook</h2>
-      <div className={css.form}>
-        <ContactForm/>
-      </div>
-      <h2 className={css.title}>Contacts</h2>
-      <div className={css.formFilter}>
-        <Filter/>
-      </div>
-      <div className={css.listContact}>
-        <ContactList/>
-      </div>
-    </div>
+    <Layout>
+          <Suspense>
+          <Routes>
+            <Route path="/" element={<Home/>}></Route>
+            <Route path="/register" element={<Register/>}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/contacts" element={<Contacts/>}></Route>
+          </Routes> 
+        </Suspense>
+    </Layout>
   );
 };

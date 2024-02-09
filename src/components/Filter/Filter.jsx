@@ -20,7 +20,7 @@ const Filter = () => {
                 className={css.input}   
                 type="text"
                 name="findName"
-                value={filter}  // Змінено filter на value
+                value={filter} 
                 onChange={handleChangeFilter}
             />  
         </>

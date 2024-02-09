@@ -1,6 +1,6 @@
 .main{
     margin: 0 auto;
-    width: 600px;
+    width: 800px;
 }
 
 .title{
@@ -34,4 +34,55 @@
     background-color: antiquewhite;
     padding: 25px 25px;
     margin-top: 25px;
+}
+
+.navlink {
+    margin-left: 60px;
+    font-weight: 700;
+    font-size: 24px;
+    color: black;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 150px;
+    padding-right: 150px;
+    height: 200px;
+    border-bottom: 20px;
+    border-color: antiquewhite;
+    background-color: rgb(248, 248, 248);
+}
+
+.registForm{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+.inputUser{
+    margin-top: 14px;
+    height: 25px;
+    background-color: bisque;
+}
+
+.labelUser{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.userBtn{
+    height: 30px;
+    width: 80px;
+}
+
+.userDiv{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
 }
