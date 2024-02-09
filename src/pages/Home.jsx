@@ -12,6 +12,7 @@ const Home = () => {
   const handleLogOut = () => dispatch(apiLogoutUser());
 
   const userName = userData?.name ?? "Could't get user";
+  const userEmail = userData?.email;
 
   return (
     <div className={css.userDiv}>
@@ -19,8 +20,9 @@ const Home = () => {
         <p>Welcome on phonebook app</p>
          {userName ?
           <>
-              <p>{userName}</p>
-              <button className={css.userBtn} onClick={handleLogOut} disabled={isLoading} type="button">Logout</button>
+            <p>{userName}</p>
+            <p>{userEmail}</p>
+            <button className={css.userBtn} onClick={handleLogOut} disabled={isLoading} type="button">Logout</button>
           </>:
           <p>Pleace registration on app</p>
           }

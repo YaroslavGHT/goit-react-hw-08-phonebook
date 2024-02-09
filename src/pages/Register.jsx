@@ -41,7 +41,7 @@ const Register = () => {
           Password:<br></br>
           <input className={css.inputUser}
             type="password" name="userPassword"
-            placeholder="**********" minLength={7}
+            placeholder="enter seven symbol" minLength={7}
             required
           />
         </label>
