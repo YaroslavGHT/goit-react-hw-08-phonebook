@@ -15,12 +15,12 @@ const Navigation = () => {
       </NavLink>
       {isLoggedIn ? (
         <>
-            <NavLink
+            {/* <NavLink
                 className={({ isActive }) => `${css.navlink} ${isActive ? css.active : ''}`}
                 to="/register" end>Register</NavLink>
             <NavLink
                 className={({ isActive }) => `${css.navlink} ${isActive ? css.active : ''}`}
-                to="/login" end>Login</NavLink>
+                to="/login" end>Login</NavLink> */}
             <NavLink
                 className={({ isActive }) => `${css.navlink} ${isActive ? css.active : ''}`}
                 to="/contacts" end>Contacts</NavLink>

@@ -41,7 +41,7 @@ export const apiDeleteContact = createAsyncThunk(
 );
 
 const initialState = {
-  contacts: [],
+  contacts: null,
   error: null,
   isLoading: false,
 };

@@ -19,7 +19,7 @@ const ContactList = () => {
 
     return (
         <ul className={css.listContscts}>
-          {visibleContacts.length > 0 && visibleContacts.map(contact => 
+          {visibleContacts !== null && visibleContacts !== undefined && visibleContacts.map(contact => 
             <li key={contact.id}>
                 <p>
                     <span className={css.contactName}>{contact.name}</span>

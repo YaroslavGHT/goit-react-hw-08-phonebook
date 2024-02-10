@@ -25,7 +25,7 @@ const Register = () => {
           Name:<br></br>
           <input className={css.inputUser}
             type="text" name="userName"
-            placeholder="Your name" minLength={2}
+            placeholder="Qwer" minLength={2}
             required
           />
         </label>
@@ -33,7 +33,7 @@ const Register = () => {
           Email:<br></br>
           <input className={css.inputUser}
             type="email" name="userEmail"
-            placeholder="yourEmail@gmail.com"
+            placeholder="Qwer@gmail.com"
             required
           />
         </label>
